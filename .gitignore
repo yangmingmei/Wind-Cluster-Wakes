@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# IDE and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local outputs
+outputs/
+results/
+*.log
+
+# Project-local tools
+.tools/
