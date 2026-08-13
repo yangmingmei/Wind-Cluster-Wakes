@@ -14,7 +14,7 @@ Validation and case studies include:
 
 ![Normalized wind-speed heatmap from AWAKEN Doppler-radar observations](docs/images/awaken-radar-wake-heatmap.png)
 
-The normalized wind-speed heatmap highlights turbine wakes observed by Doppler radar at the King Plains wind farm during the AWAKEN experiment. It illustrates the spatial extent of the merged in-farm and downstream wake region, together with the turbine layout and inflow conditions.
+The normalized wind-speed heatmap highlights turbine wakes observed by Doppler radar at the King Plains wind farm during the AWAKEN experiment. It illustrates the spatial extent of the merged in-farm and downstream wake region, together with the turbine layout and inflow conditions. Terrain effect significantly influence the wakes
 
 ## WIPAFF airborne observations
 
