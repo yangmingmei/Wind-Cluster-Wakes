@@ -1,0 +1,17 @@
+# Shared environment for the validation workflows currently included (WRF).
+# Versions match the local pywake_cluster environment; transitive packages are
+# resolved by Conda/pip. This is an environment specification, not a lockfile.
+name: pywake_cluster
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - numpy=2.2.6
+  - scipy=1.18.0
+  - pandas=3.0.5
+  - matplotlib=3.10.3
+  - xarray=2026.7.0
+  - openpyxl=3.1.5
+  - pip:
+      - py-wake==2.6.20
