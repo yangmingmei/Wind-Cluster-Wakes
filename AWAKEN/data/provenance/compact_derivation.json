@@ -1,0 +1,387 @@
+[
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_014_rank_003_seg_03_20240422.183015_20240422.192659.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_014_rank_003_seg_03_20240422.183015_20240422.192659.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_014_rank_003_seg_03_20240422.183015_20240422.192659.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_027_rank_005_seg_03_20230720.173405_20230720.183136.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_027_rank_005_seg_03_20230720.173405_20230720.183136.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_027_rank_005_seg_03_20230720.173405_20230720.183136.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_068_rank_015_seg_02_20230827.021421_20230827.030226.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_068_rank_015_seg_02_20230827.021421_20230827.030226.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_068_rank_015_seg_02_20230827.021421_20230827.030226.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_128_rank_024_seg_08_20230617.223812_20230617.233723.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_128_rank_024_seg_08_20230617.223812_20230617.233723.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_128_rank_024_seg_08_20230617.223812_20230617.233723.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_140_rank_026_seg_03_20230704.180235_20230704.185631.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_140_rank_026_seg_03_20230704.180235_20230704.185631.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_140_rank_026_seg_03_20230704.180235_20230704.185631.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_154_rank_028_seg_05_20240428.212715_20240428.222041.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_154_rank_028_seg_05_20240428.212715_20240428.222041.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_154_rank_028_seg_05_20240428.212715_20240428.222041.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_169_rank_030_seg_04_20240412.184732_20240412.193748.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_169_rank_030_seg_04_20240412.184732_20240412.193748.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_169_rank_030_seg_04_20240412.184732_20240412.193748.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_173_rank_031_seg_03_20230814.193235_20230814.202820.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_173_rank_031_seg_03_20230814.193235_20230814.202820.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_173_rank_031_seg_03_20230814.193235_20230814.202820.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_185_rank_032_seg_09_20231028.075403_20231028.085306.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_185_rank_032_seg_09_20231028.075403_20231028.085306.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_185_rank_032_seg_09_20231028.075403_20231028.085306.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_203_rank_035_seg_03_20230625.150235_20230625.155827.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_203_rank_035_seg_03_20230625.150235_20230625.155827.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_203_rank_035_seg_03_20230625.150235_20230625.155827.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_217_rank_037_seg_01_20231117.180548_20231117.190402.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_217_rank_037_seg_01_20231117.180548_20231117.190402.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_217_rank_037_seg_01_20231117.180548_20231117.190402.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_238_rank_041_seg_02_20230630.044152_20230630.053915.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_238_rank_041_seg_02_20230630.044152_20230630.053915.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_238_rank_041_seg_02_20230630.044152_20230630.053915.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_288_rank_049_seg_07_20230624.085845_20230624.095652.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_288_rank_049_seg_07_20230624.085845_20230624.095652.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_288_rank_049_seg_07_20230624.085845_20230624.095652.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_296_rank_050_seg_08_20231018.231958_20231019.001803.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_296_rank_050_seg_08_20231018.231958_20231019.001803.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_296_rank_050_seg_08_20231018.231958_20231019.001803.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_314_rank_054_seg_01_20230717.025459_20230717.034635.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_314_rank_054_seg_01_20230717.025459_20230717.034635.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_314_rank_054_seg_01_20230717.025459_20230717.034635.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_323_rank_055_seg_04_20240502.042423_20240502.052200.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_323_rank_055_seg_04_20240502.042423_20240502.052200.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_323_rank_055_seg_04_20240502.042423_20240502.052200.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_340_rank_057_seg_07_20230906.075511_20230906.085232.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_340_rank_057_seg_07_20230906.075511_20230906.085232.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_340_rank_057_seg_07_20230906.075511_20230906.085232.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_355_rank_060_seg_03_20240503.220431_20240503.225627.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_355_rank_060_seg_03_20240503.220431_20240503.225627.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_355_rank_060_seg_03_20240503.220431_20240503.225627.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_364_rank_063_seg_01_20230701.215538_20230701.224302.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_364_rank_063_seg_01_20230701.215538_20230701.224302.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_364_rank_063_seg_01_20230701.215538_20230701.224302.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_369_rank_064_seg_03_20240331.190032_20240331.195911.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_369_rank_064_seg_03_20240331.190032_20240331.195911.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_369_rank_064_seg_03_20240331.190032_20240331.195911.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_380_rank_067_seg_02_20231014.190136_20231014.194459.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_380_rank_067_seg_02_20231014.190136_20231014.194459.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_380_rank_067_seg_02_20231014.190136_20231014.194459.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_382_rank_068_seg_01_20240418.022758_20240418.032212.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_382_rank_068_seg_01_20240418.022758_20240418.032212.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_382_rank_068_seg_01_20240418.022758_20240418.032212.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_410_rank_073_seg_04_20231109.005908_20231109.015853.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_410_rank_073_seg_04_20231109.005908_20231109.015853.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_410_rank_073_seg_04_20231109.005908_20231109.015853.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_417_rank_074_seg_03_20230807.045747_20230807.054136.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_417_rank_074_seg_03_20230807.045747_20230807.054136.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_417_rank_074_seg_03_20230807.045747_20230807.054136.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_418_rank_075_seg_01_20230718.033112_20230718.042307.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_418_rank_075_seg_01_20230718.033112_20230718.042307.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_418_rank_075_seg_01_20230718.033112_20230718.042307.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_430_rank_078_seg_03_20231022.171441_20231022.180829.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_430_rank_078_seg_03_20231022.171441_20231022.180829.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_430_rank_078_seg_03_20231022.171441_20231022.180829.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_432_rank_079_seg_01_20230827.053055_20230827.062222.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_432_rank_079_seg_01_20230827.053055_20230827.062222.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_432_rank_079_seg_01_20230827.053055_20230827.062222.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_461_rank_084_seg_03_20240505.075031_20240505.084934.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_461_rank_084_seg_03_20240505.075031_20240505.084934.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_461_rank_084_seg_03_20240505.075031_20240505.084934.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_470_rank_086_seg_02_20230719.162758_20230719.172549.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_470_rank_086_seg_02_20230719.162758_20230719.172549.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_470_rank_086_seg_02_20230719.162758_20230719.172549.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_480_rank_088_seg_05_20231104.200927_20231104.210857.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_480_rank_088_seg_05_20231104.200927_20231104.210857.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_480_rank_088_seg_05_20231104.200927_20231104.210857.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_493_rank_090_seg_06_20240410.221655_20240410.230909.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_493_rank_090_seg_06_20240410.221655_20240410.230909.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_493_rank_090_seg_06_20240410.221655_20240410.230909.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_505_rank_093_seg_01_20231105.194017_20231105.203801.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_505_rank_093_seg_01_20231105.194017_20231105.203801.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_505_rank_093_seg_01_20231105.194017_20231105.203801.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_525_rank_094_seg_19_20231005.183740_20231005.193708.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_525_rank_094_seg_19_20231005.183740_20231005.193708.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_525_rank_094_seg_19_20231005.183740_20231005.193708.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_530_rank_095_seg_04_20230716.174052_20230716.183513.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_530_rank_095_seg_04_20230716.174052_20230716.183513.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_530_rank_095_seg_04_20230716.174052_20230716.183513.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  },
+  {
+    "path": "AWAKEN/data/Awaken_data_georeferenced_split_551_rank_099_seg_04_20230911.223957_20230911.233256.npz",
+    "source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_551_rank_099_seg_04_20230911.223957_20230911.233256.npz",
+    "geometry_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_551_rank_099_seg_04_20230911.223957_20230911.233256.npz",
+    "added_keys": [
+      "selected_geometry_columns",
+      "selected_geometry_values",
+      "turbine_case_ids",
+      "turbine_farm_names"
+    ]
+  }
+]

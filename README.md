@@ -1,95 +1,99 @@
 # Wind Cluster Wakes
 
-Analytical modeling of wind-farm cluster wakes, centered on validation of the **improved Top-down model** against numerical simulations and field observations.
+**From wind-farm layout to long-distance wake predictions.** Compare a layout-aware top-down model with TurboPark, Gaussian, and Array-stability + TurboPark using WRF simulations, WIPAFF aircraft measurements, and AWAKEN Doppler-radar observations.
 
-This is an actively developing research repository. WRF is the first integrated validation dataset; WIPAFF and AWAKEN will be added as separate validation workflows.
+This repository contains the processed inputs and code for the manuscript *An open-source analytical model of inter-farm wake effect in a wind farm cluster* (13 September 2026 revision). **Each dataset has one `main.py`: calculate the models, compare with observations, and generate the paper figures.**
 
-## Validation status
+## Results at a glance
 
-| Dataset | Reference | Current repository contents |
-|---|---|---|
-| [WRF](WRF_Validation/README.md) | Numerical wind-farm simulations | 30 processed cases, four model drivers, and a validation summary figure |
-| WIPAFF | Airborne observations | Preview figure; dataset and validation workflow pending |
-| AWAKEN | Doppler-radar observations | Preview figure; dataset and validation workflow pending |
+### WRF · flow fields across a wind-farm cluster
 
-## WRF validation results
+30 cases, 165 turbines, and four analytical models. Top-down achieves a mean wake-region MAE of **0.201 m/s**. The figure shows the fixed central case used in the paper; nominal neutral refers to its case label, while the calculation uses diagnosed stability.
 
-The current comparison covers nominal wind speeds of **8, 10, and 12 m/s**, wind directions of **90° and 270°**, and five stability cases (**L = −500, −200, +200, +500 m, and neutral**) at a **119 m** reference height.
+![WRF reference flow field compared with four analytical wake models](WRF/assets/wrf_model_heatmap.png)
 
-![MAE comparison of four models across 30 WRF cases](WRF_Validation/assets/model_validation_summary.png)
+[WRF settings, results, and outputs →](WRF/README.md)
 
-The supplied summary reports the following mean absolute errors (MAE, m/s); lower values indicate closer agreement with WRF.
+### WIPAFF · aircraft profiles through offshore wakes
 
-| Model | Global field at 119 m | Turbine effective wind speed | Wake-region field |
-|---|---:|---:|---:|
-| **Improved Top-down** | **0.100** | **0.203** | **0.213** |
-| Gaussian | 0.291 | 0.705 | 1.237 |
-| TurboPark | 0.337 | 0.531 | 1.319 |
-| Array Stability | 0.542 | 0.474 | 1.930 |
+Two flights, ten downstream transects, and 208 turbines. The mean section RMSE is **0.07335 U/Uref** for top-down. Scores use unsmoothed profiles; the displayed curves use the same five-bin median for observations and every model.
 
-Improved Top-down has the lowest reported MAE in all three comparisons, approximately **66%, 57%, and 83%** below the next-best model for each metric, respectively. These findings apply to this 30-case WRF set. The values above are transcribed from the supplied figure; the metric aggregation script and exact wake-region mask are not yet included. See the [WRF documentation](WRF_Validation/README.md) for inputs, execution, and reproducibility details.
+![WIPAFF aircraft observations compared with four wake models across ten transects](WIPAFF/assets/wipaff_profiles.png)
 
-## Quick start
+[WIPAFF settings, results, and outputs →](WIPAFF/README.md)
 
-Run these commands from the repository root with Conda available:
+### AWAKEN · radar observations of onshore wakes
+
+35 corrected radar periods and 272 supplied turbine positions. The onshore top-down configuration gives a mean field MAE of **8.458 percentage points**. The illustration below uses the favorable multi-farm case `split_551`, covering farm interiors and regions between farms across the maximum available radar footprint. The ensemble scores and paired intervals are generated separately in Fig. 7. Onshore parameters were developed on this benchmark, so the full-sample result is not independent external validation.
+
+![AWAKEN radar velocity deficit compared with offshore and onshore top-down and three engineering models](AWAKEN/assets/awaken_representative_comparison.png)
+
+[AWAKEN settings, results, and outputs →](AWAKEN/README.md)
+
+## One environment for all datasets
+
+From this directory, create and activate the shared environment:
 
 ```bash
 conda env create -f environment.yml
 conda activate pywake_cluster
-python WRF_Validation/main_wrf_wake_models.py --limit 1
 ```
 
-The smoke test runs one case through each of the four models. To run all 30 cases:
+Then run any or all of the three entrypoints:
 
 ```bash
-python WRF_Validation/main_wrf_wake_models.py
+python WRF/main.py
+python WIPAFF/main.py
+python AWAKEN/main.py
 ```
 
-The shared [environment.yml](environment.yml) currently covers the WRF workflow. To update an existing environment:
+Each command recalculates all supplied cases and writes new predictions, CSV scores, and PDF/PNG/SVG figures to its dataset's `outputs/` directory. The AWAKEN calculation is the longest step; allow roughly 15 minutes on the original machine. Results and figures use the newly calculated predictions.
 
-```bash
-conda env update -f environment.yml
-```
+- Add `--check-reference` to check numerical agreement with the retained publication predictions (`rtol=atol=1e-10`). Omit this option when changing model parameters.
+- Add `--reference` to quickly regenerate scores and figures from retained predictions without recalculating the solvers.
+- WRF and AWAKEN accept `--limit 1` for a short calculation check. Paper figures requiring the complete ensemble are generated by a full run.
 
-Outputs are written under `WRF_Validation/outputs/` and ignored by Git. The drivers generate model predictions and case summaries; they do not regenerate the validation infographic above.
+For an existing environment, run `conda env update -f environment.yml`. [environment.yml](environment.yml) is the only configuration file. Activate it before invoking Python, especially on Windows. Inputs are included; no raw-data download is needed. Plots use Times New Roman when installed, with DejaVu Serif as a fallback.
 
-## Repository layout
+## Model comparison
+
+Equal-case or equal-section means are shown below. Units and observation support differ between datasets; compare model scores within each column.
+
+| Model | WRF wake MAE (m/s) | WIPAFF profile RMSE (U/Uref) | AWAKEN field MAE (pp) |
+|---|---:|---:|---:|
+| Top-down / AWAKEN onshore | **0.200672** | **0.073345** | **8.4581** |
+| TurboPark | 1.122926 | 0.078180 | 8.5658 |
+| Gaussian | 1.027709 | 0.089479 | 8.9215 |
+| Array-stability + TurboPark | 1.152381 | 0.075846 | 9.7099 |
+
+AWAKEN also evaluates the original offshore-transfer top-down configuration (10.4353 pp) and retains the no-wake reference (10.5286 pp).
+
+## Code layout
 
 ```text
-Wind Cluster Wakes/
-├── README.md                  # Project overview and validation status
-├── environment.yml            # Shared Conda environment
-├── docs/images/               # Observational preview figures
-└── WRF_Validation/
-    ├── README.md              # WRF data, commands, and limitations
-    ├── WRF_processed/         # 30 NPZ cases, manifest, turbine layout
-    ├── assets/                # Curated validation summary figure
-    ├── 10MW_turbine_curve.xlsx
-    ├── main_wrf_wake_models.py
-    ├── analytical_*.py        # Four model drivers
-    ├── *_model.py             # Top-down and Array Stability formulations
-    ├── wrf_*.py               # Shared loading, modeling, and plotting helpers
-    └── outputs/               # Generated locally, ignored by Git
+OpenSource/
+├── README.md
+├── environment.yml       # Shared environment
+├── wake_models.py        # Shared physical models
+├── plot_style.py         # Shared fonts
+├── WRF/
+├── WIPAFF/
+└── AWAKEN/
+    # Each dataset has the same structure:
+    ├── README.md         # Settings and results
+    ├── main.py           # Calculate → compare → plot
+    ├── models.py         # Dataset-specific solver adapters
+    ├── plotting.py       # Publication plotting functions
+    ├── data/             # Processed inputs and reference predictions
+    └── assets/           # Paper figure PDFs and README previews
 ```
 
-## Observational validation previews
+There are **11 Python files** and exactly three executable entrypoints. Keep the three dataset folders and the two shared Python files together. Raw-data processing, parameter searches, historical drivers, and duplicate model packages are outside this distribution.
 
-### WIPAFF airborne observations
+## Figures and attribution
 
-![Observed and modeled wake cross-sections from a WIPAFF flight](docs/images/wipaff-flight-cross-sections.png)
+[FIGURE_INDEX.md](FIGURE_INDEX.md) maps paper Figs. 3–8 to their plotting files. All three `main.py` commands preserve `data/` and `assets/`; new output goes to `outputs/`.
 
-Crosswind profiles from 5 to 45 km downstream compare observed normalized wind speed with an existing top-down model. This retained preview is context for the planned WIPAFF integration; it is not presented as a completed validation of the improved model.
+See [DATA_SOURCES.md](DATA_SOURCES.md) for campaign references and input provenance. No project-wide source-code license was supplied with the workspace; existing dataset attribution is retained.
 
-### AWAKEN Doppler-radar observations
-
-![Normalized wind-speed heatmap from AWAKEN Doppler-radar observations](docs/images/awaken-radar-wake-heatmap.png)
-
-The retained King Plains radar preview shows the observed wake region and turbine layout. Terrain effects significantly influence the wakes. The corresponding dataset and executable validation workflow are pending integration.
-
-## Development conventions and next steps
-
-- Keep each dataset in its own validation directory, with a README describing provenance, preprocessing, units, case coverage, and run commands.
-- Maintain shared dependencies in the root `environment.yml`; add dependencies as new workflows are integrated.
-- Keep compact inputs, manifests, and selected result figures under version control. Store routine generated outputs in each validation directory's ignored `outputs/` folder.
-- For model changes, run the one-case smoke test, then the full affected validation set before updating reported results. Record the code revision, environment, parameters, and case selection with each result release.
-- Next: add the WRF metric aggregation workflow and explicit evaluation masks, then integrate WIPAFF and AWAKEN datasets and validation drivers. Add dataset source references and reuse terms as part of that work.
+Project: [yangmingmei/Wind-Cluster-Wakes](https://github.com/yangmingmei/Wind-Cluster-Wakes).

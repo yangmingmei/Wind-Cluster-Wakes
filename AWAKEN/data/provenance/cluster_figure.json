@@ -1,0 +1,25 @@
+{
+  "case": "split_551_rank_099_seg_04_20230911.223957_20230911.233256",
+  "observation_source": "AWAKEN/Results_and_Compare/awaken_doppler_corrected_top35_q75_terrain_aware/data/Awaken_data_georeferenced_split_551_rank_099_seg_04_20230911.223957_20230911.233256.npz",
+  "benchmark_source": "AWAKEN/Results_and_Compare/awaken_four_model_20260911/data/Awaken_data_georeferenced_split_551_rank_099_seg_04_20230911.223957_20230911.233256.npz",
+  "selection_script": "LaTeX_submission_ready_20260913/workflow/scripts/build_awaken_cluster_case.py",
+  "prediction_and_plot_script": "OpenSource/AWAKEN/cluster_figure.py",
+  "selection_rule": "Consider the 18 multi-farm periods. Require observations within 500 m of at least three turbines in each of at least two farms, and top-down downstream MAE below all three engineering baselines. Among those cases, select the smallest top-down MAE over all reliable terrain-supported native cells; ties by case ID.",
+  "files": [
+    {
+      "path": "AWAKEN/data/cluster_figure/input.npz",
+      "bytes": 5338713,
+      "sha256": "d013bb82450bf0d8486014f63fc859580486c937b18b758761657f41c94aaeda"
+    },
+    {
+      "path": "AWAKEN/data/cluster_figure/reference.npz",
+      "bytes": 1651723,
+      "sha256": "8c6cda19a1d8be36939485d531ec759a54de2436bb7554b5ff4d665ce3bcf0bf"
+    },
+    {
+      "path": "AWAKEN/data/cluster_figure/case_selection.csv",
+      "bytes": 4608,
+      "sha256": "b468ed997196dd8e1713dc2fe467db40b5ef8f4f13cf3233c673b7752f42ba73"
+    }
+  ]
+}
