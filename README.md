@@ -2,7 +2,7 @@
 
 **From wind-farm layout to long-distance wake predictions.** Compare a layout-aware top-down model with TurboPark, Gaussian, and Array-stability + TurboPark using WRF simulations, WIPAFF aircraft measurements, and AWAKEN Doppler-radar observations.
 
-This repository contains the processed inputs and code for the manuscript *An open-source analytical model of inter-farm wake effect in a wind farm cluster* (13 September 2026 revision). **Each dataset has one `main.py`: calculate the models, compare with observations, and generate the paper figures.**
+This repository contains the processed inputs and code for the manuscript *An open-source analytical model of inter-farm wake effects in wind farm clusters retaining turbine-leverl layout* (27 September 2026 revision). **Each dataset has one `main.py`: calculate the models, compare with observations, and generate the paper figures.**
 
 ## Results at a glance
 
