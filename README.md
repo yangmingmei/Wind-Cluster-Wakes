@@ -55,18 +55,6 @@ Each command recalculates all supplied cases and writes new predictions, CSV sco
 
 For an existing environment, run `conda env update -f environment.yml`. [environment.yml](environment.yml) is the only configuration file. Activate it before invoking Python, especially on Windows. Inputs are included; no raw-data download is needed. Plots use Times New Roman when installed, with DejaVu Serif as a fallback.
 
-## Model comparison
-
-Equal-case or equal-section means are shown below. Units and observation support differ between datasets; compare model scores within each column.
-
-| Model | WRF wake MAE (m/s) | WIPAFF profile RMSE (U/Uref) | AWAKEN field MAE (pp) |
-|---|---:|---:|---:|
-| Top-down / AWAKEN onshore | **0.200672** | **0.073345** | **8.4581** |
-| TurboPark | 1.122926 | 0.078180 | 8.5658 |
-| Gaussian | 1.027709 | 0.089479 | 8.9215 |
-| Array-stability + TurboPark | 1.152381 | 0.075846 | 9.7099 |
-
-AWAKEN also evaluates the original offshore-transfer top-down configuration (10.4353 pp) and retains the no-wake reference (10.5286 pp).
 
 ## Code layout
 
