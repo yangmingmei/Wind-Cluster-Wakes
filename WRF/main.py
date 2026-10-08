@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from threadpoolctl import threadpool_limits
 import models as m
-from plotting import make_figures
+from plotting import make_figure
 MODELS = ('top_down', 'turbopark', 'gaussian', 'array_stability')
 TI = 0.09
 GAUSSIAN_K = 0.0324555
@@ -127,7 +127,7 @@ def main():
                 print(f'{case} / {name}', flush=True)
             np.savez_compressed(output / 'fields' / path.name, **saved)
             if case == 'ws10_wd270_Lmneutral':
-                make_figures(d, predictions, output)
+                make_figure(output, reference=args.reference, check_reference=args.check_reference)
     table = pd.DataFrame(rows)
     table.to_csv(output / 'metrics_by_case.csv', index=False)
     summary = table.groupby('model').mean(numeric_only=True)

@@ -1,0 +1,11 @@
+grid_m,model,check,max_ratio_difference
+100,top_down,reproduction_of_published_100m_field,0.0
+100,td_offshore_transfer,reproduction_of_published_100m_field,0.0
+100,array_stability,reproduction_of_published_100m_field,0.0
+100,gaussian,reproduction_of_published_100m_field,0.0
+100,turbopark,reproduction_of_published_100m_field,0.0
+25,top_down,25m_vs_100m_on_shared_native_points,0.0
+25,td_offshore_transfer,25m_vs_100m_on_shared_native_points,0.0
+25,array_stability,25m_vs_100m_on_shared_native_points,0.0
+25,gaussian,25m_vs_100m_on_shared_native_points,0.0
+25,turbopark,25m_vs_100m_on_shared_native_points,0.0

@@ -1,0 +1,105 @@
+{
+  "case": "ws10_wd270_Lmneutral",
+  "input_sha256": "a40d869c700e7584558eb404e6acf2205b4a10874b624acdd48cc1a88517a74f",
+  "output_grid_m": 50.0,
+  "grid_shape_yx": [
+    821,
+    3221
+  ],
+  "top_down_internal_grid_m": 250.0,
+  "asm_internal_grid_m": 250.0,
+  "wrf_reference_native_grid_m": 1000.0,
+  "freestream_speed_mps": 10.50709569959596,
+  "wind_from_deg": 277.92113198109064,
+  "L_m": -259.1668049636926,
+  "H_m": 1186.8374603289426,
+  "turbulence_intensity": 0.09,
+  "gaussian_k": 0.0324555,
+  "pywake_version": "2.6.20",
+  "plot_order": [
+    "wrf",
+    "top_down",
+    "turbopark",
+    "gaussian",
+    "array_stability"
+  ],
+  "layout": "3 panels in top row, 2 centered panels in bottom row",
+  "extents_km": {
+    "east": [
+      38,
+      161
+    ],
+    "north": [
+      0,
+      41
+    ]
+  },
+  "colour_limits_mps": [
+    7.88032177469697,
+    10.717237613587878
+  ],
+  "timing": [
+    {
+      "model": "top_down",
+      "seconds": 0.39932060000137426,
+      "internal_step_m": 250.0
+    },
+    {
+      "model": "turbopark",
+      "seconds": 294.1009316999989
+    },
+    {
+      "model": "gaussian",
+      "seconds": 28.930396300012944
+    },
+    {
+      "model": "array_stability",
+      "seconds": 314.8395451999968,
+      "internal_step_m": 250.0,
+      "ct_iterations": 1,
+      "ct_residual": 0.0
+    }
+  ],
+  "verification": [
+    {
+      "model": "top_down",
+      "max_change_at_shared_100m_points_mps": 0.0,
+      "max_turbine_change_mps": 0.0,
+      "full_mae_on_native_1km_wrf_mps": 0.06607240222325315,
+      "wake_mae_on_native_1km_wrf_mps": 0.17539749346039288,
+      "finite_points": 2644441
+    },
+    {
+      "model": "turbopark",
+      "max_change_at_shared_100m_points_mps": 0.0,
+      "max_turbine_change_mps": 0.0,
+      "full_mae_on_native_1km_wrf_mps": 0.34843294861532575,
+      "wake_mae_on_native_1km_wrf_mps": 1.167979597508149,
+      "finite_points": 2644441
+    },
+    {
+      "model": "gaussian",
+      "max_change_at_shared_100m_points_mps": 0.0,
+      "max_turbine_change_mps": 0.0,
+      "full_mae_on_native_1km_wrf_mps": 0.2819678817656098,
+      "wake_mae_on_native_1km_wrf_mps": 0.9890628512031161,
+      "finite_points": 2644441
+    },
+    {
+      "model": "array_stability",
+      "max_change_at_shared_100m_points_mps": 0.0,
+      "max_turbine_change_mps": 0.0,
+      "full_mae_on_native_1km_wrf_mps": 0.35449977449555353,
+      "wake_mae_on_native_1km_wrf_mps": 1.1913459554178274,
+      "finite_points": 2644441
+    }
+  ],
+  "scope": "Only the four analytical fields of this case were rerun on a 50 m output grid. Internal grids remain 250 m. The WRF atmospheric simulation is not rerun or upsampled.",
+  "revision_date": "2026-10-08",
+  "original_resolution_trial_solver_sha256": "424a72969f913104ce794582ed51471f1aa671f716d48ed9d5a3844775432499",
+  "published_code_sha256": {
+    "WRF/cluster_figure.py": "e7c9b259c87120408b6f55f8722f1aa2f011f3533b219a54d338eccad546b9f1",
+    "WRF/models.py": "7d1ce840641025858f2f0fdfaeed751b4d5dc466894c68dc5e06bbb52360f55c",
+    "wake_models.py": "5e8648f1c076b0b6cc7f9f26b69cb1034462c89a784c20b8187edf4a262bc09c"
+  }
+}

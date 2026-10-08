@@ -152,11 +152,12 @@ def main():
     shutil.copy2(data / 'turbine_mapping.csv', output / 'turbine_mapping.csv')
     if len(paths[:args.limit]) == 35:
         cluster_source=HERE/'data/cluster_figure'
-        cluster_fields=cluster_source/'reference.npz'
+        cluster_fields=cluster_source/'reference_25m.npz'
         if not args.reference:
             from cluster_figure import predict
             cluster_fields=output/'cluster_figure/fields.npz'
-            predict(cluster_source/'input.npz',cluster_fields)
+            predict(cluster_source/'input.npz',cluster_fields,
+                    check_reference=cluster_source/'reference_25m.npz' if args.check_reference else None)
         make_figures(table, fields, output, cluster_fields=cluster_fields)
     else:
         print('Limited run: ensemble article figures require all 35 periods.')

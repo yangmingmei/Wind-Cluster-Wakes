@@ -1,0 +1,201 @@
+{
+  "case": "split_551_rank_099_seg_04_20230911.223957_20230911.233256",
+  "input_sha256": "d013bb82450bf0d8486014f63fc859580486c937b18b758761657f41c94aaeda",
+  "timing_protocol": "One run per resolution, same Python process, numerical thread limit 1. Times include model evaluation and height projection; exclude imports, loading, scoring, interpolation to display, file I/O, and plotting.",
+  "total_solver_seconds": {
+    "100": 23.650875600011204,
+    "25": 298.8444962999929
+  },
+  "ratio_25m_to_100m": 12.635663108381971,
+  "physical_parameters_unchanged": true,
+  "internal_grid_m": 250,
+  "radar_observation_native_grid_m": 25,
+  "terrain_height_source_grid_m": 100,
+  "benchmark_35_cases_unchanged": true,
+  "timing": [
+    {
+      "grid_m": 100,
+      "model": "top_down",
+      "seconds": 0.05724359999294393,
+      "native_points": 46431,
+      "display_points": 63002,
+      "thrust_area_target_m2": 2012493.3265946214,
+      "thrust_area_grid_m2": 2012493.3265946207,
+      "hub_ratio_min": 0.6969379365271495,
+      "hub_ratio_max": 1.0025858940085302,
+      "solver_step_m": 250.0
+    },
+    {
+      "grid_m": 100,
+      "model": "td_offshore_transfer",
+      "seconds": 0.0868596000073012,
+      "native_points": 46431,
+      "display_points": 63002,
+      "thrust_area_target_m2": 2012493.3265946214,
+      "thrust_area_grid_m2": 2012493.3265946207,
+      "hub_ratio_min": 0.8448389352612141,
+      "hub_ratio_max": 1.005144870724362,
+      "solver_step_m": 250.0
+    },
+    {
+      "grid_m": 100,
+      "model": "array_stability",
+      "seconds": 13.007072599997628,
+      "native_points": 46431,
+      "display_points": 63002,
+      "asm_ct_iterations": 10.0,
+      "asm_ct_residual": 5.750601843457215e-05,
+      "asm_step_m": 250.0,
+      "asm_nx": 200.0,
+      "asm_ny": 184.0,
+      "asm_representative_diameter_m": 110.0,
+      "asm_roughness_m": 0.03
+    },
+    {
+      "grid_m": 100,
+      "model": "gaussian",
+      "seconds": 1.0954878000047756,
+      "native_points": 46431,
+      "display_points": 63002
+    },
+    {
+      "grid_m": 100,
+      "model": "turbopark",
+      "seconds": 9.404212000008556,
+      "native_points": 46431,
+      "display_points": 63002
+    },
+    {
+      "grid_m": 25,
+      "model": "top_down",
+      "seconds": 0.14474239999253768,
+      "native_points": 737721,
+      "display_points": 1001957,
+      "thrust_area_target_m2": 2012493.3265946214,
+      "thrust_area_grid_m2": 2012493.3265946207,
+      "hub_ratio_min": 0.6950757427646426,
+      "hub_ratio_max": 1.0033398137660063,
+      "solver_step_m": 250.0
+    },
+    {
+      "grid_m": 25,
+      "model": "td_offshore_transfer",
+      "seconds": 0.140587100002449,
+      "native_points": 737721,
+      "display_points": 1001957,
+      "thrust_area_target_m2": 2012493.3265946214,
+      "thrust_area_grid_m2": 2012493.3265946207,
+      "hub_ratio_min": 0.8439123447801978,
+      "hub_ratio_max": 1.0051533405198134,
+      "solver_step_m": 250.0
+    },
+    {
+      "grid_m": 25,
+      "model": "array_stability",
+      "seconds": 143.88953440000478,
+      "native_points": 737721,
+      "display_points": 1001957,
+      "asm_ct_iterations": 10.0,
+      "asm_ct_residual": 5.750601843457215e-05,
+      "asm_step_m": 250.0,
+      "asm_nx": 200.0,
+      "asm_ny": 184.0,
+      "asm_representative_diameter_m": 110.0,
+      "asm_roughness_m": 0.03
+    },
+    {
+      "grid_m": 25,
+      "model": "gaussian",
+      "seconds": 14.814706999997725,
+      "native_points": 737721,
+      "display_points": 1001957
+    },
+    {
+      "grid_m": 25,
+      "model": "turbopark",
+      "seconds": 139.8549253999954,
+      "native_points": 737721,
+      "display_points": 1001957
+    }
+  ],
+  "verification": [
+    {
+      "grid_m": 100,
+      "model": "top_down",
+      "check": "reproduction_of_published_100m_field",
+      "max_ratio_difference": 0.0
+    },
+    {
+      "grid_m": 100,
+      "model": "td_offshore_transfer",
+      "check": "reproduction_of_published_100m_field",
+      "max_ratio_difference": 0.0
+    },
+    {
+      "grid_m": 100,
+      "model": "array_stability",
+      "check": "reproduction_of_published_100m_field",
+      "max_ratio_difference": 0.0
+    },
+    {
+      "grid_m": 100,
+      "model": "gaussian",
+      "check": "reproduction_of_published_100m_field",
+      "max_ratio_difference": 0.0
+    },
+    {
+      "grid_m": 100,
+      "model": "turbopark",
+      "check": "reproduction_of_published_100m_field",
+      "max_ratio_difference": 0.0
+    },
+    {
+      "grid_m": 25,
+      "model": "top_down",
+      "check": "25m_vs_100m_on_shared_native_points",
+      "max_ratio_difference": 0.0
+    },
+    {
+      "grid_m": 25,
+      "model": "td_offshore_transfer",
+      "check": "25m_vs_100m_on_shared_native_points",
+      "max_ratio_difference": 0.0
+    },
+    {
+      "grid_m": 25,
+      "model": "array_stability",
+      "check": "25m_vs_100m_on_shared_native_points",
+      "max_ratio_difference": 0.0
+    },
+    {
+      "grid_m": 25,
+      "model": "gaussian",
+      "check": "25m_vs_100m_on_shared_native_points",
+      "max_ratio_difference": 0.0
+    },
+    {
+      "grid_m": 25,
+      "model": "turbopark",
+      "check": "25m_vs_100m_on_shared_native_points",
+      "max_ratio_difference": 0.0
+    }
+  ],
+  "original_resolution_trial_source_code_sha256": {
+    "preview_awaken_25m.py": "eb7409813d4e93ede791b2a37da2e461ecef47be6682c315fa975f68e0625af5",
+    "models.py": "235f65cbd7bc949e5a16a22f2e3de4b8518239acb73c7a11124c19d99e0f34ff",
+    "cluster_figure.py": "cdae745cef5aed3808569671f9fab1510f7bfca6d22f3d3c5e3f63cfaa676b9a",
+    "wake_models.py": "5e8648f1c076b0b6cc7f9f26b69cb1034462c89a784c20b8187edf4a262bc09c"
+  },
+  "original_resolution_trial_checksums": {
+    "awaken_representative_comparison.pdf": "1f4d9462248d1ce789e3d7240921bbb1786e1b326716ab2c7ac48ed3c7c6cc9a",
+    "input.npz": "d013bb82450bf0d8486014f63fc859580486c937b18b758761657f41c94aaeda",
+    "reference.npz": "8c6cda19a1d8be36939485d531ec759a54de2436bb7554b5ff4d665ce3bcf0bf"
+  },
+  "revision_date": "2026-10-08",
+  "adopted_as_article_figure": 7,
+  "published_code_sha256": {
+    "AWAKEN/cluster_figure.py": "17c96379a9cbb7d27125dfc4f3e02680c76732cbe97a2af537fda201c49beff8",
+    "AWAKEN/models.py": "235f65cbd7bc949e5a16a22f2e3de4b8518239acb73c7a11124c19d99e0f34ff",
+    "wake_models.py": "5e8648f1c076b0b6cc7f9f26b69cb1034462c89a784c20b8187edf4a262bc09c"
+  }
+}

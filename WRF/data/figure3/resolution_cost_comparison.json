@@ -1,0 +1,54 @@
+{
+  "case": "ws10_wd270_Lmneutral",
+  "comparison": "Original sequential single-thread resolution trials; excludes plotting.",
+  "seconds_100m": 156.00024789999588,
+  "seconds_50m": 638.27019380001,
+  "timing_100m": [
+    {
+      "grid": "new",
+      "model": "top_down",
+      "seconds": 0.16833840000617784,
+      "internal_step_m": 250.0
+    },
+    {
+      "grid": "new",
+      "model": "turbopark",
+      "seconds": 65.81650839999202
+    },
+    {
+      "grid": "new",
+      "model": "gaussian",
+      "seconds": 6.304158099999768
+    },
+    {
+      "grid": "new",
+      "model": "array_stability",
+      "seconds": 83.71124299999792,
+      "internal_step_m": 250.0,
+      "ct_iterations": 1,
+      "ct_residual": 0.0
+    }
+  ],
+  "timing_50m": [
+    {
+      "model": "top_down",
+      "seconds": 0.39932060000137426,
+      "internal_step_m": 250.0
+    },
+    {
+      "model": "turbopark",
+      "seconds": 294.1009316999989
+    },
+    {
+      "model": "gaussian",
+      "seconds": 28.930396300012944
+    },
+    {
+      "model": "array_stability",
+      "seconds": 314.8395451999968,
+      "internal_step_m": 250.0,
+      "ct_iterations": 1,
+      "ct_residual": 0.0
+    }
+  ]
+}

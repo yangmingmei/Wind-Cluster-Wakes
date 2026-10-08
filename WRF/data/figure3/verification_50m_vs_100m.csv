@@ -1,0 +1,5 @@
+model,max_change_at_shared_100m_points_mps,max_turbine_change_mps,full_mae_on_native_1km_wrf_mps,wake_mae_on_native_1km_wrf_mps,finite_points
+top_down,0.0,0.0,0.06607240222325315,0.17539749346039288,2644441
+turbopark,0.0,0.0,0.34843294861532575,1.167979597508149,2644441
+gaussian,0.0,0.0,0.2819678817656098,0.9890628512031161,2644441
+array_stability,0.0,0.0,0.35449977449555353,1.1913459554178274,2644441

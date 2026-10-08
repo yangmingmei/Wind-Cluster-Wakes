@@ -38,8 +38,14 @@ Cases have equal weight. The common wake mask is `Uref − Uwrf >= max(0.05 m/s,
 
 - `outputs/fields/*.npz`: new model fields and turbine speeds.
 - `outputs/metrics_by_case.csv`, `metrics_summary.csv`: per-case and ensemble scores.
-- `outputs/figures/wrf_model_heatmap.{pdf,png,svg}`: Fig. 3, drawn by `plotting.py::make_figures` from the new predictions for `ws10_wd270_Lmneutral`.
-- `outputs/figure_data/wrf_heatmap.npz`: plotted numerical fields.
+- `outputs/figures/wrf_model_heatmap.{pdf,png,svg}`: Fig. 3, drawn by `cluster_figure.py::draw` from the new predictions for `ws10_wd270_Lmneutral`.
+- `outputs/figure_data/wrf_heatmap_50m.npz`: plotted numerical fields.
 - `outputs/verification.json`: reference differences and diagnostic calculation times.
 
-The fixed Fig. 3 case must be included to draw the figure; use the default full run. `assets/` preserves the submitted PDF and its preview.
+The fixed Fig. 3 case must be included when using `main.py`. For this figure alone, run `python WRF/cluster_figure.py`; add `--reference` to redraw or `--check-reference` to verify a new solve. `assets/` preserves the submitted PDF and its preview.
+
+## Figure 3 resolution
+
+The updated illustration evaluates four analytical fields at 50 m (821 × 3221 points), with 250 m internal top-down and ASM grids, and retains the native 1 km WRF reference. Five equal panels occupy two rows (3+2), with units m/s. The 30-case benchmark still uses its original scoring grids and ASM settings; the fine illustration does not replace those scores.
+
+`data/figure3/reference_50m.npz` retains the complete fine-grid fields; `provenance.json` records inputs, grids, and the preceding measured solve times. In sequential single-thread runs, total four-model time rose from 156 s at 100 m to 638 s at 50 m (4.1×), excluding plotting. All four fields agree at the shared 100 m sampling points.

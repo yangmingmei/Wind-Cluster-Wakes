@@ -1,4 +1,4 @@
-"""Full-footprint intra-farm and inter-farm comparison for article Figure 8.
+"""Full-footprint intra-farm and inter-farm comparison for article Figure 7.
 
 The selected processed input and retained full-grid predictions are separate
 from the fixed 35-period downstream benchmark. No calibration is performed.
@@ -53,23 +53,39 @@ def observed_domain(d):
     return s[a],n[b],radar[a,b],mask[a,b],coverage[a,b],meta
 
 
-def predict(input_path,output_path,*,check_downstream=None):
+def predict(input_path,output_path,*,check_downstream=None,resolution_m=25,check_reference=None):
     sys.path[:0]=[str(HERE),str(HERE.parent)]
     import models as m
     from wake_models import hub_field,height_projection,AWAKEN_ONSHORE,build_pywake_model,validate_pywake_speed
     with np.load(input_path) as z:d={k:z[k] for k in z.files}
     s,n,radar,mask,coverage,meta=observed_domain(d)
-    x,y=d['radar_x'],d['radar_y'];xx,yy=np.meshgrid(x*1000,y*1000)
+    if resolution_m not in (25,100): raise ValueError('Resolution must be 25 or 100 m')
+    if resolution_m == 25:
+        # Keep the preceding 100 m display extent; insert additional sample points.
+        s=s[0]+np.arange((len(s)-1)*4+1)*.025
+        n=n[0]+np.arange((len(n)-1)*4+1)*.025
+        radar=sample(d['observation_x'],d['observation_y'],d['radar_native'],s,n,meta)
+        coverage=sample(d['observation_x'],d['observation_y'],d['coverage_native'],s,n,meta)
+        shown_height=sample(d['radar_x'],d['radar_y'],d['height'],s,n,meta)
+        mask=np.isfinite(radar)&(coverage>=.6)&np.isfinite(shown_height)
+        x,y=d['observation_x'],d['observation_y']
+        gx,gy=np.meshgrid(x,y)
+        height=RegularGridInterpolator((d['radar_y'],d['radar_x']),d['height'],bounds_error=True)(
+            np.c_[gy.ravel(),gx.ravel()]).reshape(gx.shape)
+    else:
+        x,y=d['radar_x'],d['radar_y'];height=d['height']
+    xx,yy=np.meshgrid(x*1000,y*1000)
     tx,ty,types,groups=d['tx'],d['ty'],d['types'],d['groups']
-    speed=float(d['hub_speed']);wd=meta['wind_from_deg'];L=meta['L_m'];height=d['height']
+    speed=float(d['hub_speed']);wd=meta['wind_from_deg'];L=meta['L_m']
     valid=np.isfinite(height)
     curves=[m.load_ct_curve(next((HERE/'data/turbines'/folder).glob('*performance.csv')))
             for folder in ['2.8MW','1.7MW','2.3MW','1.8MW']]
     tp=m.initialize_pywake_model(False)
     engineering={'turbopark':tp,'gaussian':build_pywake_model('gaussian',tp.site,tp.windTurbines)}
     fields={};checks={};native_scores={}
-    native_radar=d['radar_native'][::4,::4]
-    native_mask=np.isfinite(native_radar)&(d['coverage_native'][::4,::4]>=.6)&valid
+    stride=resolution_m//25
+    native_radar=d['radar_native'][::stride,::stride]
+    native_mask=np.isfinite(native_radar)&(d['coverage_native'][::stride,::stride]>=.6)&valid
     if check_downstream:
         with np.load(check_downstream) as z:prior={k:z[k] for k in z.files}
     with threadpool_limits(limits=1):
@@ -89,7 +105,7 @@ def predict(input_path,output_path,*,check_downstream=None):
             if not np.isfinite(fields['q_'+key][mask]).all():raise ValueError(key+': invalid prediction on observations')
             native_scores[key]=float(100*np.mean(abs(q[native_mask]-native_radar[native_mask])))
             if check_downstream:
-                q_old=sample(x,y,q,prior['s'],prior['n'],meta)
+                q_old=sample(d['radar_x'],d['radar_y'],q[::100//resolution_m,::100//resolution_m],prior['s'],prior['n'],meta)
                 np.testing.assert_allclose(q_old,prior['q_'+key],rtol=1e-10,atol=1e-10,equal_nan=True)
                 checks[key]=float(np.nanmax(abs(q_old-prior['q_'+key])))
             print(key, 'full native MAE',round(native_scores[key],4),flush=True)
@@ -99,14 +115,21 @@ def predict(input_path,output_path,*,check_downstream=None):
            for key,values in {'radar':radar,**{k[2:]:v for k,v in fields.items()}}.items()}
     scores={key:float(100*np.mean(abs(values[mask]-radar[mask]))) for key,values in ((k[2:],v) for k,v in fields.items())}
     meta.update(full_native_mae_pp=native_scores,full_display_grid_mae_pp=scores,
-                full_observed_cells=int(mask.sum()),full_observed_area_km2=float(mask.sum()*.01),
+                full_observed_cells=int(mask.sum()),full_observed_area_km2=float(mask.sum()*(resolution_m/1000)**2),
                 s_extent_km=[float(s[0]),float(s[-1])],n_extent_km=[float(n[0]),float(n[-1])],
-                display_grid_step_km=.1,minimum_temporal_coverage=.6,
+                display_grid_step_km=resolution_m/1000,minimum_temporal_coverage=.6,
+                native_prediction_grid_m=resolution_m,internal_solver_grid_m=250.,
+                terrain_height_source_grid_m=100.,terrain_height_resampling='bilinear; no new terrain detail',
                 profile_rule='Lateral mean of every common observed cell at each streamwise station; support varies with observation availability.',
                 downstream_prediction_checks=checks)
     out=dict(s=s,n=n,radar=radar,mask=mask,coverage=coverage,mean_valid=good,profile_count=counts,
              turbine_s=d['turbine_s'],turbine_n=d['turbine_n'],groups=groups,
              metadata=np.array(json.dumps(meta)),**fields,**{'mean_'+k:v for k,v in means.items()})
+    if check_reference:
+        with np.load(check_reference) as z:
+            np.testing.assert_array_equal(out['mask'],z['mask'])
+            for key in ['s','n','radar',*fields]:
+                np.testing.assert_allclose(out[key],z[key],rtol=1e-10,atol=1e-10,equal_nan=True)
     output_path=Path(output_path);output_path.parent.mkdir(parents=True,exist_ok=True)
     np.savez_compressed(output_path,**out)
     return out
@@ -185,7 +208,7 @@ def draw(field_path,figure_dir,data_dir):
             if i%3==0:ax.set_ylabel('Crosswind distance (km)')
             if i>=3:ax.set_xlabel('Streamwise distance (km)',labelpad=5)
             ax.tick_params(direction='out',length=3,width=.65,labelleft=i%3==0)
-        colorbar=fig.colorbar(im,ax=maps,label='Velocity deficit (pp)',extend='both',
+        colorbar=fig.colorbar(im,ax=maps,label='Velocity deficit (%)',extend='both',
                              shrink=.86,pad=.02,fraction=.03,aspect=35)
         colorbar.outline.set_linewidth(.6)
         colorbar.ax.tick_params(length=3,width=.6)
@@ -221,16 +244,22 @@ def main():
     import argparse
     ap=argparse.ArgumentParser()
     ap.add_argument('--reference',action='store_true')
+    ap.add_argument('--resolution-m',type=int,choices=[25,100],default=25)
+    ap.add_argument('--check-reference',action='store_true')
     ap.add_argument('--check-downstream',type=Path)
     ap.add_argument('--fields-only',type=Path,help='Recalculate fields to this NPZ and skip drawing')
     args=ap.parse_args()
     source=HERE/'data/cluster_figure';out=HERE/'outputs/cluster_figure'
+    retained=source/('reference_25m.npz' if args.resolution_m==25 else 'reference.npz')
+    options=dict(check_downstream=args.check_downstream,resolution_m=args.resolution_m,
+                 check_reference=retained if args.check_reference else None)
+    if args.reference and args.check_reference:ap.error('--check-reference requires a new calculation')
     if args.fields_only:
         if args.reference:ap.error('--fields-only recalculates; it cannot be combined with --reference')
-        predict(source/'input.npz',args.fields_only,check_downstream=args.check_downstream)
+        predict(source/'input.npz',args.fields_only,**options)
         return
-    fields=source/'reference.npz' if args.reference else out/'fields.npz'
-    if not args.reference:predict(source/'input.npz',fields,check_downstream=args.check_downstream)
+    fields=retained if args.reference else out/'fields.npz'
+    if not args.reference:predict(source/'input.npz',fields,**options)
     print(draw(fields,HERE/'outputs/figures',HERE/'outputs/figure_data')['case'])
 
 

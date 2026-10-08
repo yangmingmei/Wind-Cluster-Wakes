@@ -74,7 +74,7 @@ def context(td,wide,paired):
     for label,g in td.groupby('stability'):
         axs[0,1].scatter(80/g.L_m,g.wind_speed_ms,s=27,label=f'{label} ({len(g)})')
     axs[0,1].axvline(0,color='.6',lw=.8)
-    axs[0,1].set(xlabel='Stability coordinate, 80 m / L',ylabel='Radar reference speed (m s$^{-1}$)',
+    axs[0,1].set(xlabel='Stability coordinate, 80 m / L',ylabel='Radar reference speed (m/s)',
                  title='(b) Fixed 35-period subset')
     axs[0,1].legend(fontsize=8)
     all_scores=pd.read_csv(RESULT/'metrics.csv').pivot(index='case',columns='model',values='field_mae_pp')
@@ -84,23 +84,23 @@ def context(td,wide,paired):
                          s=12,alpha=.60,color=COLORS.get(m,'#8b739f'))
         axs[1,0].plot(j,all_scores[m].mean(),'D',color='black',ms=5)
     axs[1,0].set(xticks=range(len(shown)),xticklabels=['Original\ntop down','Onshore\ntop down','TurboPark','Gaussian','ASM +\nTurboPark','No wake'],
-                 ylabel='Case field MAE (pp)',title='(c) All cases; diamonds: mean')
+                 ylabel='Case field MAE (%)',title='(c) All cases; diamonds: mean')
     axs[1,0].tick_params(axis='x',labelsize=8)
     for j,r in paired.iterrows():
         axs[1,1].plot([r.ci_low_pp,r.ci_high_pp],[j,j],color=COLORS[r.comparator],lw=2)
         axs[1,1].plot(r.mean_difference_pp,j,'o',color=COLORS[r.comparator])
     axs[1,1].axvline(0,color='.4',lw=.8)
     axs[1,1].set(yticks=range(len(MODELS)-1),yticklabels=[LABEL[m] for m in MODELS[1:]],
-        xlabel='Top-down minus comparator MAE (pp)',title='(d) Paired mean; 95% date-block interval')
+        xlabel='Top-down minus comparator MAE (%)',title='(d) Paired mean; 95% date-block interval')
     for ax in axs.ravel():ax.spines[['top','right']].set_visible(False)
     td.reset_index().to_csv(DATA/'awaken_context.csv',index=False)
     wide.to_csv(DATA/'awaken_case_errors.csv')
     save(fig,'awaken_context_and_scores')
 
 def representative(td, cluster_fields=None):
-    """Figure 8 uses a full-cluster field separate from downstream scoring."""
+    """Figure 7 uses a full-cluster field separate from downstream scoring."""
     from cluster_figure import draw
-    fields=Path(cluster_fields) if cluster_fields else Path(__file__).resolve().parent/'data/cluster_figure/reference.npz'
+    fields=Path(cluster_fields) if cluster_fields else Path(__file__).resolve().parent/'data/cluster_figure/reference_25m.npz'
     with np.load(fields) as z:meta=json.loads(str(z['metadata']))
     if meta['case'] not in td.index:raise ValueError('Cluster figure case is outside benchmark')
     return draw(fields,FIG,DATA)
